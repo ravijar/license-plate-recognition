@@ -11,11 +11,11 @@ results = {}
 mot_tracker = Sort()
 
 # load models
-coco_model = YOLO('yolov8n.pt')
+coco_model = YOLO('./models/yolov8n.pt')
 license_plate_detector = YOLO('./models/license_plate_detector.pt')
 
 # load video
-cap = cv2.VideoCapture('./sample.mp4')
+cap = cv2.VideoCapture('./input/sample.mp4')
 
 vehicles = [2, 3, 5, 7]
 
@@ -66,4 +66,4 @@ while ret:
                                                                     'text_score': license_plate_text_score}}
 
 # write results
-write_csv(results, './test.csv')
+write_csv(results, './csv/test.csv')
